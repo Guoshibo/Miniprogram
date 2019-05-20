@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<!-- 显示时间 -->
+<wxs src="../../utils/time.wxs" module="time"/>
+<view id="container">
+  <!-- 搜索 -->
+  <view class='searchs'>
+    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="bindKeyInput" maxlength="15"  />
+    <button bindtap='search'><image src='{{searchImg}}'></image></button>
+  </view>
+  <!-- 搜索结束 -->
+  <view class='title'>
+    <text>全部随记</text>
+  </view>
+  <!-- 全部便签内容 -->
+  <view id="content">
+    <scroll-view
+      scroll-y
+      style="{{scrollHeight}}"
+      bindscrolltoupper="upper"
+      bindscrolltolower="lower"
+      bindscroll="scroll"
+      scroll-into-view="{{toView}}"
+      scroll-top="{{scrollTop}}"
+    >
+      <view class="scroll-view-item allNote" bindtap='todetails' data-id="{{item._id}}"  data-time="{{time.formatTimes(item.createdTime)}}" data-content="{{item.content}}" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item._id'>
+        <!-- <navigator hover-class="none" url="/pages/noteDetail/noteDetail?time={{item.time}}&content = {{item.content}}"> -->
+          <view class='time'>{{time.formatTimes(item.createdTime)}}</view>
+          <view class='myContent'>TIP:{{item.content}}</view>
+        <!-- </navigator> -->
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 全部便签内容结束 -->
+  <view class='speak' bindlongtap='startrecorderHandel' bindtouchend="sendrecorderHandel" class="{{select == 0 ? 'borders':'speak'}}">录</view>
+</view>

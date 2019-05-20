@@ -1,0 +1,135 @@
+/**index.wxss**/
+page{
+  background: #ffffff;
+}
+#container{
+  width: 100%;
+}
+/* 搜索框 */
+.searchs{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.searchs .place-holder{
+  color: #ccc;
+}
+.searchs input{
+  height: 70rpx;
+  border: 2rpx solid rgb(234,228,216);
+  width: 100%;
+  border-radius: 40rpx;
+  padding: 0rpx 0 0rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color:black; 
+}
+.searchs button{
+  border: none;
+  padding: 0;
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 50rpx;
+  top: 25rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  z-index: 11;
+}
+button::after {
+  border: none
+}
+.searchs button image{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 搜索框结束 */
+.title{
+  width: 100%;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  color: #123456;
+  font-weight:bolder;
+  opacity: 0.6;
+}
+.title text{
+  font-size: 45rpx;
+  font-family:'Courier New', Courier, monospace;
+  line-height:0%;
+}
+/* 内容列表 */
+#content{
+  width: 100%;
+  padding: 40rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 105rpx;
+  z-index: -9;
+}
+#content scroll-view{
+  height: 100%;
+}
+#content .allNote{
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  border-radius: 16rpx;
+  border: 1px solid #ccc;
+}
+#content .allNote .time{
+  position: relative;
+  font-size: 30rpx;
+  padding: 8rpx 0 8rpx 40rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #e5e0d6;
+}
+#content .allNote .myContent{
+  font-size: 36rpx;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;
+  border-radius: 0 0 16rpx 0;
+}
+/* 内容列表结束 */
+
+#container .speak{
+  color:rgba(0, 0, 0, 0.6);
+  font-size: 23px;
+  width: 150rpx;
+  height: 150rpx;
+  position: fixed;
+  left: 50%;
+  transform:translateX(-50%);
+  bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* border: 1px solid #ccc; */
+  background: #f0f0f0;
+}
+#container .borders{
+  font-size: 22px;
+  width: 130rpx;
+  height: 130rpx;
+  position: fixed;
+  left: 50%;
+  transform:translateX(-50%);
+  bottom: 80rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1rpx solid#ccc;
+}
+.speak image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.borders image{
+  width: 60rpx;
+  height: 60rpx;
+}
