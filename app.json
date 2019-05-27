@@ -10,7 +10,7 @@
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "Diary",
     "navigationBarTextStyle": "white",
-    "backgroundColor": ""
+    "navigationBarBackgroundColor":"#616fff"
   },
   "tabBar": {
     "color": "#999",

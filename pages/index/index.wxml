@@ -4,7 +4,7 @@
 <view id="container">
   <!-- 搜索 -->
   <view class='searchs'>
-    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="bindKeyInput" maxlength="15"  />
+    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="bindKeyInput" maxlength="15"/>
     <button bindtap='search'><image src='{{searchImg}}'></image></button>
   </view>
   <!-- 搜索结束 -->
