@@ -3,7 +3,7 @@
   width: 100%;
   padding: 40rpx;
   box-sizing: border-box;
-  background-image: url('../../static/8.jpg');
+  /* background-image: url('../../static/8.jpg'); */
 }
 .textExtraction .upload{
   width: 100%;
