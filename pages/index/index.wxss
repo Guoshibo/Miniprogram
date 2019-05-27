@@ -47,6 +47,7 @@ button::after {
   height: 40rpx;
 }
 /* 搜索框结束 */
+/* 大标题 */
 .title{
   width: 100%;
   position: absolute;
@@ -61,6 +62,7 @@ button::after {
   font-family:'Courier New', Courier, monospace;
   line-height:0%;
 }
+/* 大标题结束 */
 /* 内容列表 */
 #content{
   width: 100%;
