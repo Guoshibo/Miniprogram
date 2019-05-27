@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.0",
 	"appid": "wx74209dec4061abf1",
-	"projectname": "diary",
+	"projectname": "Diary",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
