@@ -1,2 +1,21 @@
 <!--pages/textExtraction/textExtraction.wxml-->
-<text>pages/textExtraction/textExtraction.wxml</text>
+<view class='textExtraction'>
+  <view class='upload'>
+    <view class='photo'>
+      <image src='../../static/images/camera.png'></image>
+    </view>
+  </view>
+  <button class='upBtn'>上传图片</button>
+
+  <view class='wordInfo'>
+    <view class='title'>
+      <view>
+        <image src='../../static/images/start.png'></image>
+        <text>识别结果</text>
+      </view>
+
+      <!-- <text class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</text> -->
+      <button class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</button>
+    </view>
+  </view>
+</view>
