@@ -8,6 +8,27 @@ Page({
 
   },
 
+  login() {
+    wx.login({
+      success: res => {
+        const data = {
+          code: res.code,
+        }
+        // API.login(data).then((res) => {
+        //   if (res.code == 200) {
+        //     wx.setStorage({
+        //       key: 'TOKEN',
+        //       data: res.data.token,
+        //     })
+        //     wx.navigateBack({
+        //       delta: 1
+        //     })
+        //   }
+        // })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
