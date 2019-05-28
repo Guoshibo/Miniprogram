@@ -1,20 +1,34 @@
 <!--pages/textExtraction/textExtraction.wxml-->
 <view class='textExtraction'>
   <view class='upload'>
-    <view class='photo'>
+    <!-- <view class='photo'>    
       <image src='../../static/images/camera.png'></image>
-    </view>
+      <text>点我上传图片</text>
+    </view> -->
+     <button class='photo' open-type='contact'>
+      <image class='btnnImg' src='../../static/images/camera.png'></image>
+      <view>点我上传</view>
+    </button>
   </view>
-  <button class='upBtn'>上传图片</button>
+  <button class='upBtn'>开始识别</button>
 
   <view class='wordInfo'>
     <view class='title'>
-      <view>
+      <!-- <view>
         <image src='../../static/images/start.png'></image>
         <text>识别结果</text>
-      </view>
+      </view> -->
 
-      <button class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</button>
+      <button class='btn1' open-type='openSetting'>
+        <image class='btnImg'     src='../../static/images/shibie2.png'></image>
+        <view>识别结果</view>
+      </button>
+
+      <!-- <button class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</button> -->
+      <button class='btn1' open-type='openSetting'>
+        <image class='btnImg'     src='../../static/images/copy.png'></image>
+        <view>复制文本</view>
+      </button>
     </view>
   </view>
 </view>

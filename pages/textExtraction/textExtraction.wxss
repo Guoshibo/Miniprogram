@@ -1,9 +1,12 @@
 /* pages/textExtraction/textExtraction.wxss */
 .textExtraction{
   width: 100%;
+  height: 667px;
   padding: 40rpx;
   box-sizing: border-box;
   /* background-image: url('../../static/8.jpg'); */
+  /* background: linear-gradient(red, blue); */
+  background-color: #dad9d52f;
 }
 .textExtraction .upload{
   width: 100%;
@@ -11,28 +14,34 @@
   position: relative;
   border: 1px solid #ccc;
   border-radius: 24rpx;
+  background-color: white;
 }
 .textExtraction .photo{
-  width: 180rpx;
+  width: 280rpx;
   height: 180rpx;
   position: absolute;
   top: 100rpx;
-  left: 36%;
-  /* background:#e98d3f; */
-  border-radius: 50%;
-  display: flex;
+  left: 30%;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  color: #999999;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
 }
 .textExtraction .photo image{
   width: 100rpx;
   height: 100rpx;
 }
 .textExtraction .upBtn{
-  width: 260rpx;
-  font-size: 32rpx;
+  width: 360rpx;
+  font-size: 36rpx;
   padding: 0;
+  color:white;
   margin: 40rpx auto;
+  background-color: #7b88ff;
 }
 .textExtraction .wordInfo{
   margin-top: 10rpx;
@@ -56,4 +65,27 @@
   width: 60rpx;
   height: 40rpx;
   margin-right: 10rpx;
+}
+
+.btn1 {
+  width: 44%;
+  margin-top: 20rpx;
+  background-color: #fdcb6e;
+  color: white;
+  border-radius: 19rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0; 
 }
