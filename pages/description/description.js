@@ -1,27 +1,12 @@
-// pages/mine/mine.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array:[{
-      massage:'foo',
-    },{
-      message:'bar'
-    }] 
+
   },
-  // 直接调用微信小程序的接口navigateTo控制界面跳转
-  jumpPage:function(){
-    wx.navigateTo({
-      url:'/pages/description/description',
-    })
-  },
-  jump:function(){
-    wx.navigateTo({
-      url: '/pages/contact/contact',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
