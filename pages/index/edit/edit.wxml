@@ -1,0 +1,16 @@
+<!--pages/index/edit/edit.wxml-->
+<!-- 显示时间 -->
+<wxs src="../../../utils/time.wxs" module="times"/>
+<view class='container'>
+  <view class='header'>
+    <text class='time'>{{times.formatTimes(time)}}</text>
+    <!-- 提交按钮 -->
+    <block wx-if="{{completeIcon == true}}">
+      <icon bindtap="editNote" type="success_no_circle" size="20" color="black" />
+    </block>
+  </view>
+  <!-- 编辑内容 -->
+  <view class='content'>
+    <textarea bindfocus="focus"/>
+  </view>
+</view>
