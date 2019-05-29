@@ -9,15 +9,15 @@
   <view class="content">
     <view class='list'>
       <image src='../../static/images/mineNote.png'></image>
-      <text>日记</text>{{result}}
+      <text>日记</text>{{result}}篇
     </view>
     <view class='list'>
       <image src='../../static/images/mineNote.png'></image>
-      <text>flag</text>x
+      <text>flag</text>{{result}}个
     </view>
-    <view class='list'>
+    <view class='list' id="">
       <image src='../../static/images/mineNote.png'></image>
-      <text></text>x
+      <text>座右铭</text>
     </view>
   </view>
   <view class="develop">

@@ -63,7 +63,7 @@
 .develop{
   width: 100%;
   padding: 0 40rpx;
-  margin-bottom: 20px;
+  margin-top: 30rpx;
   box-sizing: border-box;
   color: #999;
   /* border-top: 1px solid #ccc; */
