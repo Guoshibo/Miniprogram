@@ -1,0 +1,2 @@
+<!--pages/login/login.wxml-->
+<view class="click" bindtap="go">点击记录</view>
