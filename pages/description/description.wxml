@@ -1,0 +1,9 @@
+<view>
+  <view class="box"> 
+    <text class="title">欢迎使用“diary”</text>
+    <text>
+      随时通过“说”或者“写”的方式记录生活。
+      可以记录下自己小的或大的“flag”
+    </text>
+  </view>
+</view>

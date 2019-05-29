@@ -5,7 +5,9 @@
     "pages/index/edit/edit",
     "pages/textExtraction/textExtraction",
     "pages/login/login",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/description/description",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -8,18 +8,25 @@
 
   <view class="content">
     <view class='list'>
-      <!-- <image src='../../static/images/mineNote.png'></image> -->
-      <text>记事</text>{{result}}
+      <image src='../../static/images/mineNote.png'></image>
+      <text>日记</text>{{result}}
     </view>
     <view class='list'>
-      <!-- <image src='../../static/images/mineNote.png'></image> -->
-      <text>类别</text>x
+      <image src='../../static/images/mineNote.png'></image>
+      <text>flag</text>x
     </view>
     <view class='list'>
-      <!-- <image src='../../static/images/mineNote.png'></image> -->
-      <text>代办</text>x
+      <image src='../../static/images/mineNote.png'></image>
+      <text></text>x
     </view>
   </view>
-  
+  <view class="develop">
+    <view class="diary">
+      <button bindtap='jumpPage'>关于diary</button>
+    </view>
+    <view class="diary">
+      <button bindtap="jump">联系客服</button>
+    </view>
+  </view>
 </view>
 
