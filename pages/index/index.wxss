@@ -47,22 +47,6 @@ button::after {
   height: 40rpx;
 }
 /* 搜索框结束 */
-/* 大标题 */
-.title{
-  width: 100%;
-  position: absolute;
-  top: 42px;
-  left: 0;
-  color: #123456;
-  font-weight:bolder;
-  opacity: 0.6;
-}
-.title text{
-  font-size: 45rpx;
-  font-family:'Courier New', Courier, monospace;
-  line-height:0%;
-}
-/* 大标题结束 */
 /* 内容列表 */
 #content{
   width: 100%;
@@ -102,14 +86,28 @@ button::after {
   width: 150rpx;
   height: 150rpx;
   position: fixed;
-  left: 50%;
   transform:translateX(-50%);
   bottom: 80rpx;
   display: flex;
+  left:20%;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  /* border: 1px solid #ccc; */
+  background: #f0f0f0;
+}
+#container .write{
+  color:rgba(0, 0, 0, 0.6);
+  font-size: 23px;
+  width: 150rpx;
+  height: 150rpx;
+  position: fixed;
+  transform:translateX(-50%);
+  bottom: 80rpx;
+  display: flex;
+  left:80%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   background: #f0f0f0;
 }
 #container .borders{
@@ -117,7 +115,7 @@ button::after {
   width: 130rpx;
   height: 130rpx;
   position: fixed;
-  left: 50%;
+  left: 20%;
   transform:translateX(-50%);
   bottom: 80rpx;
   background: #fff;

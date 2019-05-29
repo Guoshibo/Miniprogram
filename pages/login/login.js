@@ -1,4 +1,5 @@
 // pages/login/login.js
+const API = require('../../service/api')
 Page({
 
   /**
@@ -14,17 +15,17 @@ Page({
         const data = {
           code: res.code,
         }
-        // API.login(data).then((res) => {
-        //   if (res.code == 200) {
-        //     wx.setStorage({
-        //       key: 'TOKEN',
-        //       data: res.data.token,
-        //     })
-        //     wx.navigateBack({
-        //       delta: 1
-        //     })
-        //   }
-        // })
+        API.login(data).then((res) => {
+          if (res.code == 200) {
+            wx.setStorage({
+              key: 'TOKEN',
+              data: res.data.token,
+            })
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        })
       }
     })
   },

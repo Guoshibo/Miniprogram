@@ -3,9 +3,9 @@ const recorderManager = wx.getRecorderManager()
 Page({
   data: {
     searchText: '',
-    searchImg: 'http://img.xuewuzhijing.top/search.svg',
+    searchImg: '../../static/images/search.png',
     scrollHeight: '', //滚动高度
-    msg: '',//语音内容
+    msg: '',//语音内容`
     select: 1,//话筒动态绑定class
     orderList: [{
       createdTime: parseInt(Date.now() / 1000),
@@ -26,6 +26,11 @@ Page({
     // console.log(content,time,id);
     wx.navigateTo({
       url: 'noteDetail/noteDetail?time=' + time + '&content=' + content + '&id=' + id,
+    })
+  },
+  toedit:function(e){
+    wx.navigateTo({
+      url: 'edit/edit'
     })
   },
 

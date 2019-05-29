@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index/noteDetail/noteDetail",
+    "pages/index/edit/edit",
     "pages/textExtraction/textExtraction",
     "pages/login/login",
     "pages/mine/mine"
