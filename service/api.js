@@ -18,12 +18,6 @@ const request = (url, method, data) => {
       },
       success(request) {
         let $request = JSON.parse(JSON.stringify(request.data))
-        if ($request.code === 400) {
-          wx.navigateTo({
-            url: '/pages/login/login',
-          })
-          return
-        }
         resolve($request)
       },
       fail(error) {
