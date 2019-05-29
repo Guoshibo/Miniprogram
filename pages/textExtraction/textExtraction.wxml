@@ -23,12 +23,16 @@
         <image class='btnImg'     src='../../static/images/shibie2.png'></image>
         <view>识别结果</view>
       </button>
+      
 
       <!-- <button class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</button> -->
-      <button class='btn1' open-type='openSetting'>
-        <image class='btnImg'     src='../../static/images/copy.png'></image>
+      <button class='btn2' open-type='openSetting'>
+        <image class='btn2Img'     src='../../static/images/copy.png'></image>
         <view>复制文本</view>
       </button>
+      <hr/>
     </view>
+    
   </view>
 </view>
+

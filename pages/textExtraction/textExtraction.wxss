@@ -89,3 +89,35 @@
   border-radius: 98rpx;
   border: 0; 
 }
+
+.btn2 {
+  width: 34%;
+  margin-left: 60px;
+  margin-top: 30rpx;
+  font-size: 12px;
+  background-color: #7b88ff;
+  color: black;
+  border-radius: 19rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2Img {
+  margin-right: 8rpx;
+  width:25rpx;
+  height:25rpx;
+}
+
+.btn2::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+
+.hr{
+  width: 375px;
+  height:10px;
+  background-color: #fdcb6e;
+
+}
