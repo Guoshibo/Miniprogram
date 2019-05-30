@@ -7,8 +7,18 @@ Page({
   data: {
 
   },
-  go:function(){
-    console.log(1);
+  getUserInfo() {//同意授权，获取用户信息，encryptedData是加密字符串，里面包含unionid和openid信息
+    wx.getUserInfo({
+      withCredentials: true,//此处设为true，才会返回encryptedData等敏感信息
+      success: res => {
+        // 可以将 res 发送给后台解码出 unionId
+        // app.globalData.userInfo = res.userInfo;
+        // app.globalData.encryptedData = res.encryptedData;
+        // app.globalData.iv = res.iv;
+        // this.saveUserInfo();
+        console.log(res)
+      }
+    })
     wx.reLaunch({
       url: '../index/index',
     })
@@ -19,7 +29,6 @@ Page({
   onLoad: function (options) {
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

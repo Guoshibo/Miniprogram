@@ -1,2 +1,2 @@
 <!--pages/login/login.wxml-->
-<view class="click" bindtap="go">点击记录</view>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='click'> 点击记录 </button>
