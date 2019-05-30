@@ -14,6 +14,95 @@ Page({
   onLoad: function (options) {
 
   },
+  previewImg() {
+    // let token = wx.getStorageSync('TOKEN')
+    // if (token) {
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['camera'],
+        success: res => {
+          // tempFilePath可以作为img标签的src属性显示图片
+          const tempFilePaths = res.tempFilePaths
+
+          this.setData({
+            upImage: tempFilePaths[0],
+            isPhoto: false,
+            allInfo: [],
+          })
+
+          this.upImg(tempFilePaths[0])
+
+        }
+      })
+    // } else {
+    //   //登陆
+    //   wx.navigateTo({
+    //     url: '../login/login',
+    //   })
+    // }
+  },
+  upImg(imgFile) {
+    this.setData({
+      isLoad: true,
+    })
+    let token = wx.getStorageSync('TOKEN')
+    let _this = this
+    const uploadTask = wx.uploadFile({
+      url: 'https://api.xuewuzhijing.top/weChatApp/upImgFile',
+      filePath: imgFile,
+      name: 'imgfile',
+      header: {
+        "x-access-token": token
+      },
+      success: function (res) {
+        let $res = JSON.parse(res.data)
+        // console.log($res.data)
+        if ($res.code == 200) {
+          _this.setData({
+            isLoad: false,
+            allInfo: $res.data,
+          })
+          $res.data.map(item => {
+            _this.data.newList.push(item.words)
+          })
+          let a = _this.data.newList
+          console.log(a)
+          // 数组转换字符串，为了复制
+          _this.setData({
+            allInfoString: a.toString()
+          })
+          console.log(_this.data.allInfoString)
+        }
+        if ($res.code == -200) {
+          wx.showToast({
+            title: '没有识别出文字哦！',
+            icon: 'none',
+          })
+          _this.setData({
+            isLoad: false,
+          })
+        }
+      }
+    })
+  },
+  // 复制文本
+  copyText: function (e) {
+    console.log(e)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功',
+              icon: 'none',
+            })
+          }
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

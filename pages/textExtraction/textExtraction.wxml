@@ -5,7 +5,7 @@
       <image src='../../static/images/camera.png'></image>
       <text>点我上传图片</text>
     </view> -->
-     <button class='photo' open-type='contact'>
+     <button class='photo' open-type='contact'  bindtap='previewImg'>
       <image class='btnnImg' src='../../static/images/camera.png'></image>
       <view>点我上传</view>
     </button>
@@ -30,7 +30,6 @@
         <image class='btn2Img'     src='../../static/images/copy.png'></image>
         <view>复制文本</view>
       </button>
-      <hr/>
     </view>
     
   </view>
