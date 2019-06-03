@@ -1,4 +1,4 @@
-// pages/login/login.js
+const API = require('../../service/api').default;
 Page({
 
   /**
@@ -7,28 +7,40 @@ Page({
   data: {
 
   },
-  getUserInfo() {//同意授权，获取用户信息，encryptedData是加密字符串，里面包含unionid和openid信息
-    wx.getUserInfo({
-      withCredentials: true,//此处设为true，才会返回encryptedData等敏感信息
+
+  // 登录
+  login() {
+    wx.login({
       success: res => {
-        // 可以将 res 发送给后台解码出 unionId
-        // app.globalData.userInfo = res.userInfo;
-        // app.globalData.encryptedData = res.encryptedData;
-        // app.globalData.iv = res.iv;
-        // this.saveUserInfo();
-        console.log(res)
+        console.log(res.code);
+        const data = {
+          code: res.code,
+        }
+        API.login(data).then(res=>{
+          console.log(res);
+          if (res.data.code == 200) {
+            const token = res.data.data;
+            wx.setStorage({
+              key: 'TOKEN',
+              data: token.token
+            })
+            wx.reLaunch({
+              url: '../index/index',
+            })
+          }
+        })
       }
-    })
-    wx.reLaunch({
-      url: '../index/index',
+
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,79 +1,39 @@
-const aomain = 'localhost:3000';
-
-//不需要token的接口
-const noLogin = ['weChatApp/login']
-
+const host = 'http://localhost:3000/'
 //封装request
-const request = (url, method, data) => {
-  return new Promise((resolve, reject) => {
-    let param = data === undefined ? {} : data
-
-    //wx.request请求参数
-    const request = {
-      url: aomain + url,
+const apiRequest = (url, method, data, header) => {     //接收所需要的参数，如果不够还可以自己自定义参数
+  let promise = new Promise(function (resolve, reject) {
+    wx.request({
+      url: host + url,
+      data: data ? data : null,
       method: method,
-      data: param,
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+      header: header ? header : { 'content-type': 'application/x-www-form-urlencoded' },
+      success: function (res) {
+        //接口调用成功
+        resolve(res);    //根据业务需要resolve接口返回的json的数据
       },
-      success(request) {
-        let $request = JSON.parse(JSON.stringify(request.data))
-        resolve($request)
-      },
-      fail(error) {
-        reject(error)
+      fail: function (res) {
+        // fail调用接口失败
+        reject({ errormsg: '网络错误,请稍后重试', code: -1 });
       }
-    }
-
-    //不需要登录的接口 不带token
-    for (let item of noLogin) {
-      if (url !== item) {
-        let token = wx.getStorageSync('TOKEN')
-        if (token) {
-          request.header["x-access-token"] = token
-        } else {
-          console.log('需要登陆！')
-          // wx.navigateTo({
-          //   url: '/pages/login/login',
-          // })
-          return
-        }
-      }
-    }
-
-    //发送求情
-    wx.request(request)
-  })
+    })
+  });
+  return promise;  //注意，这里返回的是promise对象
 }
 
-//接口
-module.exports = {
-  request,
-  //登录
-  login(data) {
-    return request('weChatApp/login', 'get', data)
-  },
-  add(data) {
-    return request('weChatApp/add', 'post', data)
-  },
-  //便签列表
-  noteList(data) {
-    return request('weChatApp/noteList', 'get', data)
-  },
-  // 更新便签
-  updateNote(data) {
-    return request('weChatApp/editNote', 'post', data)
-  },
-  //删除便签
-  removeNote(data) {
-    return request('weChatApp/removeNote', 'post', data)
-  },
-  // 我的->便签数量
-  noteCount(data) {
-    return request('weChatApp/getNoteCount', 'get', data)
-  },
-  // 搜索
-  noteSeach(data) {
-    return request('weChatApp/noteSearch', 'get', data)
-  },
+//登录接口的调用
+let login = (data) => {
+  return new Promise((resolve, reject) => {
+    resolve(apiRequest('weChatApp/login', 'get', data))
+  })
+};
+
+let noteList = (data) => {
+  return new Promise((resolve, reject) => {
+    resolve(apiRequest('weChatApp/noteList', 'get', data))
+  })
+};
+
+export default{
+  login:login,
+  noteList:noteList
 }

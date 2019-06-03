@@ -116,7 +116,7 @@ function baiduAI(wavPath) {
 //获取所有便签-- /noteList
 exports.noteList = async (req, res) => {
     console.log('查询所有记录')
-    let openId = req.decoded.name
+    let openId = req.body.openId;
     let findRes = await RecorderModel.find({openId: openId}, {_id: 1, content: 1, createdTime: 1})
     res.json({
         code: 200,
@@ -125,7 +125,6 @@ exports.noteList = async (req, res) => {
         }
     })
 }
-
 //删除
 exports.removeNote = async (req, res) => {
     const {id} = req.body

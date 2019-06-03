@@ -1,4 +1,5 @@
 // pages/index/noteDetail/noteDetail.js
+const API = require('../../../service/api')
 Page({
   /**
    * 页面的初始数据
@@ -68,6 +69,16 @@ Page({
       success: res => {
         if (res.confirm) {
           let curentId = this.data.id
+          API.removeNote({
+            id: curentId,
+          }).then(res => {
+            if (res.code == 200) {
+              // 跳回首页
+              wx.navigateBack({
+                url: '../index/index',
+              })
+            }
+          })
         } else {
           console.log('用户点击辅助操作')
         }

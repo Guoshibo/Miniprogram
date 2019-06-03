@@ -3,8 +3,9 @@ const jwt = require('jsonwebtoken')
 const userModel = require('../models/user')
 
 // 微信开发者ID
-const APPID = ''
-const SECRET = ''
+const APPID = 'wx74209dec4061abf1'
+const SECRET = 'e349aaa9329491e608226dd1290aa01a'
+
 
 //请求微信登录接口
 exports.getWxUser = (req, res) => {

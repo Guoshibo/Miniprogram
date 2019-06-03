@@ -13,7 +13,7 @@
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "Diary",
     "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor":"#616fff"
+    "navigationBarBackgroundColor": "#616fff"
   },
   "tabBar": {
     "color": "#999",
@@ -41,5 +41,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

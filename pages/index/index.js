@@ -1,4 +1,5 @@
 // pages/index/index.js
+const API = require('../../service/api.js').default;
 const recorderManager = wx.getRecorderManager()
 Page({
   data: {
@@ -11,11 +12,6 @@ Page({
       createdTime: parseInt(Date.now() / 1000),
       content: "欢迎使用语音便签",
       _id: 0
-    },
-    {
-      createdTime: parseInt(Date.now() / 1000),
-      content: "随心所欲",
-      _id: 1
     }]
   },
 
@@ -23,11 +19,11 @@ Page({
     let content = e.currentTarget.dataset.content; //带参数
     let time = e.currentTarget.dataset.time;
     let id = e.currentTarget.dataset.id;
-    // console.log(content,time,id);
     wx.navigateTo({
       url: 'noteDetail/noteDetail?time=' + time + '&content=' + content + '&id=' + id,
     })
   },
+
   toedit:function(e){
     wx.navigateTo({
       url: 'edit/edit'
@@ -133,7 +129,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    API.noteList().then(res => {
+      const last = res.data.data;
+      console.log(last);
+      if (res.data.code == 200) {
+        this.setData({
+          orderList:last.result,
+        });
+        console.log(this.data.orderList)
+      }
+    })
   },
 
   /**
