@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    upImage: '../../static/images/identity2.png',//图片
+    isPhoto: true,
+    allInfo: [],//提取信息
+    newList: [],
+    allInfoString: '',//上面数组转成字符串
+    isLoad: false,//加载转圈圈
   },
 
   /**
@@ -20,7 +25,7 @@ Page({
       wx.chooseImage({
         count: 1,
         sizeType: ['compressed'],
-        sourceType: ['camera'],
+        sourceType: ['album','camera'],
         success: res => {
           // tempFilePath可以作为img标签的src属性显示图片
           const tempFilePaths = res.tempFilePaths
@@ -31,8 +36,8 @@ Page({
             allInfo: [],
           })
 
-          this.upImg(tempFilePaths[0])
-
+          // this.upImg(tempFilePaths[0])
+          return tempFilePaths;
         }
       })
     // } else {
@@ -42,6 +47,10 @@ Page({
     //   })
     // }
   },
+  up(){
+    // console.log(this.data.upImage);
+    this.upImg(this.data.upImage)
+  },
   upImg(imgFile) {
     this.setData({
       isLoad: true,
@@ -49,7 +58,7 @@ Page({
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
-      url: 'https://api.xuewuzhijing.top/weChatApp/upImgFile',
+      url: 'https://jzp.vhl1996.top/weChatApp/upImgFile',
       filePath: imgFile,
       name: 'imgfile',
       header: {
