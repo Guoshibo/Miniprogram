@@ -42,6 +42,7 @@ let noteCount = (data) => {
 };
 
 export default{
+  apiRequest: apiRequest,
   login:login,
   noteList:noteList,
   noteCount:noteCount
