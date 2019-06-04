@@ -27,13 +27,22 @@ let login = (data) => {
   })
 };
 
+
 let noteList = (data) => {
   return new Promise((resolve, reject) => {
     resolve(apiRequest('weChatApp/noteList', 'get', data))
   })
 };
 
+// 我的->便签数量
+let noteCount = (data) => {
+  return new Promise((resolve, reject) => {
+    resolve(apiRequest('weChatApp/getNoteCount', 'get', data))
+  })
+};
+
 export default{
   login:login,
-  noteList:noteList
+  noteList:noteList,
+  noteCount:noteCount
 }

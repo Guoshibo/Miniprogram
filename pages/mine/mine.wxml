@@ -11,10 +11,10 @@
       <image src='../../static/images/mineNote.png'></image>
       <text>日记</text>{{result}}篇
     </view>
-    <view class='list'>
+    <!-- <view class='list'>
       <image src='../../static/images/mineNote.png'></image>
       <text>flag</text>{{result}}个
-    </view>
+    </view> -->
     <view class='list' id="">
       <image src='../../static/images/mineNote.png'></image>
       <text>座右铭</text>

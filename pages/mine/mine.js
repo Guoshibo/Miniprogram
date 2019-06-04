@@ -1,15 +1,11 @@
-// pages/mine/mine.js
+const API  = require('../../service/api')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array:[{
-      massage:'foo',
-    },{
-      message:'bar'
-    }] 
+    result:'', 
   },
   // 直接调用微信小程序的接口navigateTo控制界面跳转
   jumpPage:function(){
@@ -28,7 +24,40 @@ Page({
   onLoad: function (options) {
 
   },
+  login() {
+    let _this = this
+    wx.login({
+      success(res) {
+        if (res.code) {
+          const data = {
+            code: res.code,
+          }
+          API.login(data).then((res) => {
+            if (res.code == 200) {
+              //存入缓存token
+              wx.setStorage({
+                key: 'TOKEN',
+                data: res.data.token,
+              })
 
+            }
+          })
+        }
+      }
+    })
+
+  },
+  //我的笔记条数
+  mynote() {
+    API.noteCount().then(res => {
+      if (res.code == 200) {
+        this.setData({
+          result: res.data.result
+        })
+        console.log(this.data.result)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -40,7 +69,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.login()
+    this.mynote()
   },
 
   /**
