@@ -20,8 +20,8 @@ Page({
 
   },
   previewImg() {
-    // let token = wx.getStorageSync('TOKEN')
-    // if (token) {
+    let token = wx.getStorageSync('TOKEN')
+    if (token) {
       wx.chooseImage({
         count: 1,
         sizeType: ['compressed'],
@@ -37,19 +37,21 @@ Page({
           })
 
           // this.upImg(tempFilePaths[0])
+          console.log("上传图片成功");
           return tempFilePaths;
         }
       })
-    // } else {
-    //   //登陆
-    //   wx.navigateTo({
-    //     url: '../login/login',
-    //   })
-    // }
+    } else {
+      //登陆
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
   },
   up(){
     // console.log(this.data.upImage);
-    this.upImg(this.data.upImage)
+    this.upImg(this.data.upImage);
+    console.log("up函数执行成功");
   },
   upImg(imgFile) {
     this.setData({
@@ -58,15 +60,15 @@ Page({
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
-      url: 'https://jzp.vhl1996.top/weChatApp/upImgFile',
+      url: 'https://localhost:3000/weChatApp/upImgFile',
       filePath: imgFile,
       name: 'imgfile',
       header: {
         "x-access-token": token
       },
       success: function (res) {
-        let $res = JSON.parse(res.data)
-        // console.log($res.data)
+        let $res = JSON.parse(res.data);
+        console.log($res.data)
         if ($res.code == 200) {
           _this.setData({
             isLoad: false,
