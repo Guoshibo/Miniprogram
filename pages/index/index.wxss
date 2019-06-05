@@ -10,6 +10,10 @@ page{
   width: 100%;
   padding: 20rpx;
   box-sizing: border-box;
+  position: fixed;
+  top: 0rpx;
+  align-items: center;
+  justify-content: space-between;
 }
 .searchs .place-holder{
   color: #ccc;
@@ -31,33 +35,27 @@ page{
   width: 60rpx;
   height: 60rpx;
   right: 50rpx;
-  top: 25rpx;
+  top: 30rpx;
   background: #ffffff;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 40rpx;
-  z-index: 11;
 }
 button::after {
   border: none
 }
 .searchs button image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 /* 搜索框结束 */
 /* 内容列表 */
 #content{
-  width: 100%;
-  padding: 40rpx 40rpx 0 40rpx;
+  width:100%;
+  padding: 20rpx 40rpx 0 40rpx;
   box-sizing: border-box;
   position: absolute;
-  top: 105rpx;
-  z-index: -9;
-}
-#content scroll-view{
-  height: 100%;
+  top: 8%;
+  overflow: auto;
+  bottom: 18%;
 }
 #content .allNote{
   box-sizing: border-box;
@@ -87,7 +85,7 @@ button::after {
   height: 150rpx;
   position: fixed;
   transform:translateX(-50%);
-  bottom: 80rpx;
+  bottom: 30rpx;
   display: flex;
   left:20%;
   align-items: center;
@@ -102,7 +100,7 @@ button::after {
   height: 150rpx;
   position: fixed;
   transform:translateX(-50%);
-  bottom: 80rpx;
+  bottom: 30rpx;
   display: flex;
   left:80%;
   align-items: center;

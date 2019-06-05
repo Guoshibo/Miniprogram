@@ -1,36 +1,52 @@
 // pages/index/edit/edit.js
+const API = require('../../../service/api.js').default;
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     time: parseInt(Date.now() / 1000),
-    content: '', //内容
-    fixedContent: '',//存储内容
     iconType: [
       'success_no_circle'
     ],
     completeIcon: false,//编辑icon
-    hidden: true, //模态框显示隐藏
   },
-
+  // 获取修改的内容
+  valueChange: function (e) {
+    this.setData({
+      content: e.detail.value
+    })
+  },
   focus(){
     this.setData({
       completeIcon: true,
     })
   },
-  
   editNote() {
       this.setData({
         completeIcon: true,
       })
-      let newContent = this.data.content
-      let curentId = this.data.id
-      wx.navigateBack({
-        url:'../index/index'
+      let newContent = this.data.content;
+      let time = parseInt(Date.now() / 1000);
+      wx.getStorage({//获取本地缓存
+        key: "openid",
+        success: res => {
+          const data = {
+            openid: res.data.openid,
+            content:newContent,
+            createdTime:time
+          }
+          console.log(data);
+          API.addNote(data).then(res => {
+            if (res.code == 200) {
+              wx.reLaunch({
+                url:'../index'
+              })
+            }
+          });
+        }
       })
-  },
+    },
   /**
    * 生命周期函数--监听页面加载
    */

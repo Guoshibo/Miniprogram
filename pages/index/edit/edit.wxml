@@ -11,6 +11,6 @@
   </view>
   <!-- 编辑内容 -->
   <view class='content'>
-    <textarea bindfocus="focus"/>
+    <textarea bindfocus="focus" bindinput='valueChange'/>
   </view>
 </view>

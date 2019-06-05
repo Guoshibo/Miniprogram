@@ -1,80 +1,51 @@
-.mine{
-  width:100%;
-  /* height:50vh; */
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  box-sizing:border-box;
-  padding:0 5px;
+.mine {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
 }
-.mine>.user{
-  text-align:center;
+.mine .user{
+  text-align: center;
+  margin-bottom: 5px;
 }
-.mine .avatar {
-  overflow: hidden;
-  display: block;
-  width: 200rpx;
-  height: 200rpx;
-  margin-top: 20rpx;
-  border-radius: 50%;
-}
-.mine .name {
+.mine .user .name {
   width: 100%;
   font-size: 36rpx;
-  margin-top: 20rpx;
   box-sizing: border-box;
   color: #333;
 }
-
-.content {
-  width: 100%;
-  padding: 0 40rpx;
-  margin-top: 15px;
-  box-sizing: border-box;
-  color: #999;
-  border-top: 1px solid #ccc;
-  display: flex;
-  flex-wrap: wrap;
-}
-.content .list {
-  width: 100%;
-}
-.content .list::after {
-  content: "";
+.mine .user .avatar {
+  overflow: hidden;
   display: block;
-  height: 1px;
-  width: 50%;
-  border-bottom: 1px solid #ccc;
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 50%;
 }
-.content image {
-  width: 50rpx;
-  height: 50rpx;
-  margin-right: 20rpx;
-}
-.content .list text {
-  display: inline-block;
-  font-size: 32rpx;
-  padding: 30rpx 0 15rpx 0;
-  box-sizing: border-box;
-  padding-right: 135rpx;
-}
-
-.develop{
+.mine .content{
+  padding: 20px;
   width: 100%;
-  padding: 0 40rpx;
-  margin-top: 30rpx;
-  box-sizing: border-box;
-  color: #999;
-  /* border-top: 1px solid #ccc; */
-  display: flex;
-  flex-wrap: wrap;
+  text-align: center;
+  line-height:0%;
+  font-size: 36px;
+  color: orange;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.develop .diary{
-  width:100%;
-  height:50px;
-  color:#fdcb6e;
+.mine .content image {
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
 }
-
+.mine .content .res{
+  float: right;
+  margin-top: 20px;
+}
+.mine .divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
 
 

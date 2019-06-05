@@ -35,7 +35,6 @@ let noteList = (data) => {
   })
 };
 
-<<<<<<< HEAD
 let updateNote = (data) => {
   return new Promise((resolve, reject) => {
     resolve(apiRequest('weChatApp/updateNote', 'post', data))
@@ -54,25 +53,25 @@ let noteSearch = (data) => {
   })
 }
 
-=======
-// 我的->便签数量
 let noteCount = (data) => {
   return new Promise((resolve, reject) => {
     resolve(apiRequest('weChatApp/getNoteCount', 'get', data))
   })
 };
 
->>>>>>> 6d9ad176e050d5b777c2de39e10dec21e682eccd
+let addNote = (data) => {
+  return new Promise((resolve, reject) => {
+    resolve(apiRequest('weChatApp/addNote', 'post', data))
+  })
+};
+
 export default{
   apiRequest: apiRequest,
   login:login,
   noteList:noteList,
-<<<<<<< HEAD
   updateNote:updateNote,
   removeNote:removeNote,
-  noteSearch:noteSearch
+  noteSearch:noteSearch,
+  noteCount: noteCount,
+  addNote:addNote
 }
-=======
-  noteCount:noteCount
-}
->>>>>>> 6d9ad176e050d5b777c2de39e10dec21e682eccd
