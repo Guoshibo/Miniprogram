@@ -18,11 +18,14 @@ Page({
         }
         API.login(data).then(res=>{
           console.log(res);
-          if (res.data.code == 200) {
-            const token = res.data.data;
+          if (res.code == 200) {
             wx.setStorage({
               key: 'TOKEN',
-              data: token.token
+              data: res.data.token
+            })
+            wx.setStorage({
+              key: 'openid',
+              data: res.data.openid
             })
             wx.reLaunch({
               url: '../index/index',

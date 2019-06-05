@@ -9,11 +9,11 @@ router.get('/login',userApi.getWxUser)
 //上传文件->语音
 router.post('/uploadFile',recorderApi.uploadRecorder)
 //便签列表
-router.get('/noteList',recorderApi.noteList)
+router.get('/noteList',recorderApi.noteList);
 //删除便签
 router.post('/removeNote',recorderApi.removeNote)
 //编辑便签
-router.post('/editNote',recorderApi.editNote)
+router.post('/updateNote',recorderApi.updateNote)
 //便签总条数
 router.get('/getNoteCount',recorderApi.getNoteCount)
 //拍照上传图片识别文字

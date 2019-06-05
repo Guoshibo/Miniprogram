@@ -110,33 +110,43 @@ Page({
 
   //搜索
   search(e) {
-    const data = {
-      text: this.data.searchText
-    }
-    // API.noteSeach(data).then(res => {
-    //   let $res = res.data
-    //   this.setData({
-    //     orderList: $res
-    //   })
-    //   // 清空搜索框
-    //   this.setData({
-    //     searchText: ''
-    //   })
-    // })
+    wx.getStorage({//获取本地缓存
+      key: "openid",
+      success: res => {
+        const data = {
+          openid: res.data.openid,
+          text:this.data.searchText
+        }
+        API.noteSearch(data).then(res => {
+          let $res = res.data;
+          this.setData({
+            orderList: $res
+          });
+        });
+      }
+    })
   },
 
     /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    API.noteList().then(res => {
-      const last = res.data.data;
-      console.log(last);
-      if (res.data.code == 200) {
-        this.setData({
-          orderList:last.result,
-        });
-        console.log(this.data.orderList)
+    wx.getStorage({//获取本地缓存
+      key: "openid",
+      success: res => {
+        const data = {
+          openid: res.data.openid,
+        }
+        console.log(res);
+        API.noteList(data).then(res => {
+          if (res.code == 200) {
+            console.log(res);
+            this.setData({
+              orderList: res.data.result,
+            });
+            console.log(this.data.orderList)
+          }
+        })
       }
     })
   },

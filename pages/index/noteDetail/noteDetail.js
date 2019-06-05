@@ -1,5 +1,5 @@
 // pages/index/noteDetail/noteDetail.js
-const API = require('../../../service/api')
+const API = require('../../../service/api.js').default;
 Page({
   /**
    * 页面的初始数据
@@ -21,46 +21,59 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      //上个页面传过来的参数
+      //上个页面带过来的参数
       time: options.time,
       content: options.content,
       fixedContent: options.content,
       id: options.id
     })
-  }, 
+  },
+  // 获取修改的内容
+  valueChange: function (e) {
+    this.setData({
+      content: e.detail.value
+    })
+  },
   // 更新编辑获取焦点
   upFocus() {
     this.setData({
       noteIcon: false,
       completeIcon: true,
     })
-    // 修改之前存下值。点击完成的时候存储一遍内容
     this.setData({
       fixedContent: this.data.content
     })
   },
-  // 更新编辑记事本
-  editNote(){
-    // 如果没有改动
-    if(this.data.fixedContent == this.data.content){
+  updateNote() {
+    if (this.data.fixedContent == this.data.content) {
       console.log("没有任何改动")
-      // 跳回首页
       wx.navigateBack({
         url: '../index/index',
       })
-    //如果有改动请求修改接口
-    }else{
-      // 切换图标
+    } else {
       this.setData({
         noteIcon: true,
         completeIcon: false,
       })
       let newContent = this.data.content
       let curentId = this.data.id
+      console.log(newContent,curentId);
+      const data = {
+        id: curentId,
+        content: newContent
+      }
+      API.updateNote(data).then(res => {
+        if(res.code == 200){
+          wx.reLaunch({
+            url: '../index',
+          })
+        }
+      })
     }
   },
   //删除
-  openConfirm: function () {
+  openConfirm:function(){
+    let that = this;
     wx.showModal({
       title: '删除',
       content: '是否要删除？',
@@ -68,14 +81,16 @@ Page({
       cancelText: "取消",
       success: res => {
         if (res.confirm) {
-          let curentId = this.data.id
-          API.removeNote({
-            id: curentId,
-          }).then(res => {
+          let curentId = that.data.id;
+          console.log(curentId);
+          const data = {
+            id:curentId
+          }
+          API.removeNote(data).then(res => {
+            console.log(res);
             if (res.code == 200) {
-              // 跳回首页
-              wx.navigateBack({
-                url: '../index/index',
+              wx.reLaunch({
+                url: '../index',
               })
             }
           })
@@ -89,14 +104,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

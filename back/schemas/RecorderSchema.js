@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 var RecorderSchema = new Schema({
     openId:String,
     content:String,
-    createdTime:Number,
+    createdTime:Number
 });
 
 module.exports = RecorderSchema;
