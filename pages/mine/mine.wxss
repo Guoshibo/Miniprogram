@@ -38,13 +38,13 @@
   flex-wrap: wrap;
 }
 .content .list {
-  width: 50%;
+  width: 100%;
 }
 .content .list::after {
   content: "";
   display: block;
   height: 1px;
-  width: 90%;
+  width: 50%;
   border-bottom: 1px solid #ccc;
 }
 .content image {
