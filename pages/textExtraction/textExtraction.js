@@ -27,29 +27,21 @@ Page({
         sizeType: ['compressed'],
         sourceType: ['album','camera'],
         success: res => {
-          // tempFilePath可以作为img标签的src属性显示图片
           const tempFilePaths = res.tempFilePaths
-
           this.setData({
             upImage: tempFilePaths[0],
             isPhoto: false,
             allInfo: [],
           })
-
-          // this.upImg(tempFilePaths[0])
           console.log("上传图片成功");
           return tempFilePaths;
         }
       })
     } else {
-      //登陆
-      wx.navigateTo({
-        url: '../login/login',
-      })
+      console.log('error');
     }
   },
   up(){
-    // console.log(this.data.upImage);
     this.upImg(this.data.upImage);
     console.log("up函数执行成功");
   },
@@ -60,7 +52,7 @@ Page({
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
-      url: 'https://api.xuewuzhijing.top/weChatApp/upImgFile',
+      url: 'https://guo.vhl1996.top/weChatApp/upImgFile',
       filePath: imgFile,
       name: 'imgfile',
       header: {

@@ -3,13 +3,15 @@
 <wxs src="../../utils/time.wxs" module="time"/>
 <view id="container">
   <view class='searchs'>
-    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="bindKeyInput" maxlength="15"/>
+    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="bindKeyInput"/>
     <button bindtap='search'><image src='{{searchImg}}'></image></button>
+
   </view>
+
   <view id="content">
       <view class="allNote" bindtap='todetails' data-id="{{item._id}}"  data-time="{{time.formatTimes(item.createdTime)}}" data-content="{{item.content}}" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item._id'>
           <view class='time'>{{time.formatTimes(item.createdTime)}}</view>
-          <view class='myContent'>TIP:{{item.content}}</view>
+          <view class='myContent'>{{item.content}}</view>
       </view>
   </view>
   <view>

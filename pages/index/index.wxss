@@ -38,13 +38,14 @@ page{
   top: 30rpx;
   background: #ffffff;
   display: flex;
+  z-index: 11;
 }
 button::after {
   border: none
 }
 .searchs button image{
-  width: 30rpx;
-  height: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 /* 搜索框结束 */
 /* 内容列表 */
@@ -115,7 +116,7 @@ button::after {
   position: fixed;
   left: 20%;
   transform:translateX(-50%);
-  bottom: 80rpx;
+  bottom: 30rpx;
   background: #fff;
   display: flex;
   align-items: center;

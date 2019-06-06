@@ -14,7 +14,6 @@ Page({
       _id: 0
     }]
   },
-
   todetails: function (e) {
     let content = e.currentTarget.dataset.content; //带参数
     let time = e.currentTarget.dataset.time;
@@ -23,14 +22,12 @@ Page({
       url: 'noteDetail/noteDetail?time=' + time + '&content=' + content + '&id=' + id,
     })
   },
-
   toedit:function(e){
     wx.navigateTo({
       url: 'edit/edit'
     })
   },
 
-  // 按下按钮的时候触发
   startrecorderHandel() {
     // 录音按钮改变class
     this.setData({
@@ -59,45 +56,48 @@ Page({
     // 结束录音
     recorderManager.stop();
     recorderManager.onStop(res => {
+      console.log(res);
       console.log('recorder stop')
-      // tempFilePath 是录制的音频文件
       const { tempFilePath } = res;
-
       // 获取文件路径-提交到后台-后台发送到百度
       let token = wx.getStorageSync('TOKEN')
-      // if (token) {
-      //   wx.uploadFile({
-      //     url: "https://api.xuewuzhijing.top/weChatApp/uploadFile",
-      //     filePath: tempFilePath,
-      //     name: "recorder",
-      //     header: {
-      //       "x-access-token": token,
-      //     },
-      //     success: res => {
-      //       let $res = JSON.parse(res.data)
-      //       if ($res.code == 200) {
-      //         let result = $res.data.result
-      //         this.data.orderList.unshift({
-      //           _id: result._id,
-      //           content: result.content,
-      //           createdTime: result.createdTime
-      //         })
-      //         this.setData({
-      //           orderList: this.data.orderList
-      //         });
-      //       } else if ($res.code === -200) {
-      //         console.log(res)
-      //         wx.showToast({
-      //           title: '没有听清！',
-      //           icon: 'none'
-      //         })
-      //       }
-      //     },
-      //     fail(err) {
-      //       console.log(err);
-      //     }
-      //   });
-      // }
+      let openid = wx.getStorageSync('openid').openid;
+      console.log(openid);
+      if (token) {
+        if (token) {
+          wx.uploadFile({
+            url: "https://guo.vhl1996.top/weChatApp/uploadFile",
+            filePath: tempFilePath,
+            name: "recorder",
+            formData:{
+              "openid":openid
+            },
+            success: res => {
+              let $res = JSON.parse(res.data)
+              if ($res.code == 200) {
+                let result = $res.data.result
+                this.data.orderList.unshift({
+                  _id: result._id,
+                  content: result.content,
+                  createdTime: result.createdTime
+                })
+                this.setData({
+                  orderList: this.data.orderList
+                });
+              } else if ($res.code === -200) {
+                console.log(res)
+                wx.showToast({
+                  title: '没有听清！',
+                  icon: 'none'
+                })
+              }
+            },
+            fail(err) {
+              console.log(err);
+            }
+          });
+        }
+      }
     });
   },
 
@@ -109,7 +109,8 @@ Page({
   },
 
   //搜索
-  search(e) {
+  search() {
+    console.log(1);
     wx.getStorage({//获取本地缓存
       key: "openid",
       success: res => {

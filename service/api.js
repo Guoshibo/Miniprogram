@@ -1,4 +1,4 @@
-const host = 'http://localhost:3000/'
+const host = 'https://guo.vhl1996.top/'
 //封装request
 const apiRequest = (url, method, data, header) => {   
   let promise = new Promise(function (resolve, reject) {
