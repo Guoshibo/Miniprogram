@@ -69,9 +69,6 @@ Page({
             url: "https://guo.vhl1996.top/weChatApp/uploadFile",
             filePath: tempFilePath,
             name: "recorder",
-            formData:{
-              "openid":openid
-            },
             success: res => {
               let $res = JSON.parse(res.data)
               if ($res.code == 200) {

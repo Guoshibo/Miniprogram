@@ -15,7 +15,6 @@ const apiRequest = (url, method, data, header) => {
       },
       fail: function (res) {
         reject(res);
-        // debugger;
       }
     })
   });
