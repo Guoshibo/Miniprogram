@@ -56,17 +56,15 @@ Page({
     // 结束录音
     recorderManager.stop();
     recorderManager.onStop(res => {
-      console.log(res);
       console.log('recorder stop')
       const { tempFilePath } = res;
       // 获取文件路径-提交到后台-后台发送到百度
       let token = wx.getStorageSync('TOKEN')
       let openid = wx.getStorageSync('openid').openid;
-      console.log(openid);
       if (token) {
         if (token) {
           wx.uploadFile({
-            url: "https://guo.vhl1996.top/weChatApp/uploadFile",
+            url: "https://guo.vhl1996.top/weChatApp/uploadFile/"+openid,
             filePath: tempFilePath,
             name: "recorder",
             success: res => {
@@ -135,14 +133,11 @@ Page({
         const data = {
           openid: res.data.openid,
         }
-        console.log(res);
         API.noteList(data).then(res => {
           if (res.code == 200) {
-            console.log(res);
             this.setData({
               orderList: res.data.result,
             });
-            console.log(this.data.orderList)
           }
         })
       }

@@ -12,12 +12,10 @@ Page({
   login() {
     wx.login({
       success: res => {
-        console.log(res.code);
         const data = {
           code: res.code,
         }
         API.login(data).then(res=>{
-          console.log(res);
           if (res.code == 200) {
             wx.setStorage({
               key: 'TOKEN',

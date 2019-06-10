@@ -1,10 +1,6 @@
 <!--pages/textExtraction/textExtraction.wxml-->
 <view class='textExtraction'>
   <view class='upload'>
-    <!-- <view class='photo'>    
-      <image src='../../static/images/camera.png'></image>
-      <text>点我上传图片</text>
-    </view> -->
     <image src='{{upImage}}' wx:if="{{!isPhoto}}"></image>
      <button class='photo'  bindtap='previewImg' wx:if="{{isPhoto}}">
       <image class='btnnImg' src='../../static/images/camera.png'></image>
@@ -13,34 +9,21 @@
   </view>
   <button class='upBtn' bindtap='up'>开始识别</button>
   <button class='upBtn' bindtap='previewImg'>重新上传</button>
-
   <view class='wordInfo'>
     <view class='title'>
-      <!-- <view>
-        <image src='../../static/images/start.png'></image>
-        <text>识别结果</text>
-      </view> -->
-
       <button class='btn1'>
         <image class='btnImg'     src='../../static/images/shibie2.png'></image>
         <view>识别结果</view>
       </button>
-      
-
-      <!-- <button class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</button> -->
       <button class='btn2' bindtap='copyText' data-text="{{allInfoString}}">
         <image class='btn2Img'     src='../../static/images/copy.png'></image>
         <view>复制文本</view>
       </button>
     </view>
-
     <view wx:for="{{allInfo}}" wx:for-index="index" wx:for-item="item" wx:key='index' class='words'>
       <view>{{item.words}}</view>
     </view>
-    
   </view>
-
   <van-loading wx:if="{{isLoad}}" type="spinner" />
-
 </view>
 

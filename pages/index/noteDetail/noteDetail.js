@@ -82,12 +82,10 @@ Page({
       success: res => {
         if (res.confirm) {
           let curentId = that.data.id;
-          console.log(curentId);
           const data = {
             id:curentId
           }
           API.removeNote(data).then(res => {
-            console.log(res);
             if (res.code == 200) {
               wx.reLaunch({
                 url: '../index',

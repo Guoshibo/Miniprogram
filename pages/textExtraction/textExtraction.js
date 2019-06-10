@@ -70,12 +70,9 @@ Page({
             _this.data.newList.push(item.words)
           })
           let a = _this.data.newList
-          console.log(a)
-          // 数组转换字符串，为了复制
           _this.setData({
             allInfoString: a.toString()
           })
-          console.log(_this.data.allInfoString)
         }
         if ($res.code == -200) {
           wx.showToast({

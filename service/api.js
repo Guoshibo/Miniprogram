@@ -9,7 +9,6 @@ const apiRequest = (url, method, data, header) => {
       method: method,
       header: header ? header : { 'content-type': 'application/x-www-form-urlencoded' },
       success: function (res) {
-        console.log(res);
         let $request = JSON.parse(JSON.stringify(res.data))
         resolve($request);   
       },
